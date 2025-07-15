@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fujiya - Order Online</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background-color: #ff4081;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+        }
+
+        /* Order Form Styles */
+        .order-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+
+        .form-title {
+            color: #ff4081;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .form-group .error {
+            color: #ff4081;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .checkbox-group {
+            margin: 20px 0;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+
+        .submit-btn {
+            background-color: #ff4081;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #e91e63;
+        }
+
+        /* Order Summary Styles */
+        #orderSummary {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #orderSummary h3 {
+            color: #ff4081;
+            margin-bottom: 15px;
+        }
+
+        #orderSummary p {
+            margin-bottom: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Fujiya</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="promotion.html">Promotions</a></li>
+                <li><a href="order.html">Order Online</a></li>
+                <li><a href="receipt.html">Orders</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Order Form -->
+        <form class="order-form" id="orderForm">
+            <h2 class="form-title">Order Online</h2>
+
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <div class="error" id="nameError">Please enter a valid name</div>
+            </div>
+
+            <!-- Contact Number -->
+            <div class="form-group">
+                <label for="phone">Contact Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <div class="error" id="phoneError">Please enter a valid phone number</div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error" id="emailError">Please enter a valid email address</div>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+                <label for="address">Delivery Address:</label>
+                <textarea id="address" name="address" required></textarea>
+                <div class="error" id="addressError">Please enter your address</div>
+            </div>
+
+            <!-- Membership Status -->
+            <div class="form-group">
+                <label for="memberStatus">Membership Status:</label>
+                <select id="memberStatus" name="memberStatus" required>
+                    <option value="">Please select</option>
+                    <option value="regular">Regular Member</option>
+                    <option value="silver">Silver Member</option>
+                    <option value="gold">Gold Member</option>
+                </select>
+                <div class="error" id="memberStatusError">Please select membership status</div>
+            </div>
+
+            <!-- Product Selection -->
+            <div class="form-group">
+                <label for="product1">Product Selection:</label>
+                <select id="product1" name="product1" required>
+                    <option value="">Please select product</option>
+                    <option value="milky">Milk Candy (100g) - 5 MYR</option>
+                    <option value="biscuits">Peko Biscuits - 20 MYR</option>
+                    <option value="gifttin">Peko & Hello Kitty Gift Box - 25 MYR</option>
+                    <option value="dessertcan">Strawberry Milk Mousse Dessert Can - 15.9 MYR</option>
+                </select>
+                <div class="error" id="product1Error">Please select a product</div>
+            </div>
+
+            <!-- Delivery Date -->
+            <div class="form-group">
+                <label for="orderDate">Delivery Date:</label>
+                <input type="date" id="orderDate" name="orderDate" required>
+                <div class="error" id="orderDateError">Please select a valid delivery date</div>
+            </div>
+
+            <!-- Additional Requests -->
+            <div class="form-group">
+                <label for="additionalRequests">Additional Requests:</label>
+                <textarea id="additionalRequests" name="additionalRequests"></textarea>
+            </div>
+
+            <!-- Terms Agreement -->
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="terms" name="terms" required>
+                    I agree to Fujiya's Terms of Service and Privacy Policy
+                </label>
+                <div class="error" id="termsError">Please agree to the terms of service</div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Order</button>
+        </form>
+
+        <!-- Order Summary -->
+        <div id="orderSummary">
+            <h3>Order Summary</h3>
+            <div id="summaryContent"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p>Copyright © 2025 Fujiya</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Reset error messages
+            document.querySelectorAll('.error').forEach(error => error.style.display = 'none');
+
+            let isValid = true;
+
+            // Validate name
+            const name = document.getElementById('name').value.trim();
+            if (name === '' || name.length > 50) {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate phone
+            const phone = document.getElementById('phone').value.trim();
+            if (!phone.match(/^\d{10,11}$/)) {
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate email
+            const email = document.getElementById('email').value.trim();
+            if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate address
+            const address = document.getElementById('address').value.trim();
+            if (address === '') {
+                document.getElementById('addressError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate membership status
+            const memberStatus = document.getElementById('memberStatus').value;
+            if (memberStatus === '') {
+                document.getElementById('memberStatusError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate product selection
+            const product1 = document.getElementById('product1').value;
+            if (product1 === '') {
+                document.getElementById('product1Error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate delivery date
+            const orderDate = document.getElementById('orderDate').value;
+            if (orderDate === '') {
+                document.getElementById('orderDateError').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate terms agreement
+            const terms = document.getElementById('terms').checked;
+            if (!terms) {
+                document.getElementById('termsError').style.display = 'block';
+                isValid = false;
+            }
+
+            if (isValid) {
+                try {
+                    // Get product information
+                    const productSelect = document.getElementById('product1');
+                    const selectedProduct = productSelect.options[productSelect.selectedIndex].text;
+
+                    // Create order object
+                    const order = {
+                        orderId: 'ORD' + Date.now(), // Generate unique order ID
+                        orderDate: new Date().toISOString(),
+                        name: name,
+                        phone: phone,
+                        email: email,
+                        address: address,
+                        memberStatus: document.getElementById('memberStatus').options[document.getElementById('memberStatus').selectedIndex].text,
+                        product: selectedProduct,
+                        deliveryDate: orderDate,
+                        additionalRequests: document.getElementById('additionalRequests').value || 'None'
+                    };
+
+                    // Get existing orders from local storage
+                    let orders = JSON.parse(localStorage.getItem('fujiyaOrders') || '[]');
+
+                    // Add new order
+                    orders.push(order);
+
+                    // Save to local storage
+                    localStorage.setItem('fujiyaOrders', JSON.stringify(orders));
+
+                    // Show success message
+                    alert('Order submitted successfully! Your order ID is: ' + order.orderId);
+
+                    // Redirect to order page
+                    window.location.href = 'receipt.html';
+                } catch (error) {
+                    console.error('Error saving order:', error);
+                    alert('Order submission failed, please try again');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

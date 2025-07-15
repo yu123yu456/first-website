@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fujiya - Order Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* 导航栏样式 */
+        nav {
+            background-color: #ff4081;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+        }
+
+        /* 主要内容区域样式 */
+        .main-content {
+            padding: 40px 0;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #ff4081;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 订单详情样式 */
+        .receipt-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .receipt-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ff4081;
+        }
+
+        .receipt-header h2 {
+            color: #ff4081;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .receipt-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .receipt-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .receipt-section h3 {
+            color: #ff4081;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .info-item {
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-item strong {
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .info-item span {
+            color: #666;
+        }
+
+        .product-details {
+            margin-top: 20px;
+        }
+
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-info {
+            flex-grow: 1;
+        }
+
+        .product-price {
+            text-align: right;
+            color: #ff4081;
+            font-weight: bold;
+        }
+
+        .total-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #ff4081;
+            text-align: right;
+        }
+
+        .total-amount {
+            font-size: 24px;
+            color: #ff4081;
+            font-weight: bold;
+        }
+
+        .print-button {
+            display: block;
+            width: 200px;
+            margin: 30px auto 0;
+            padding: 12px 24px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .print-button:hover {
+            background-color: #e91e63;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .receipt-container {
+                padding: 15px;
+            }
+        }
+
+        @media print {
+
+            nav,
+            footer,
+            .print-button {
+                display: none;
+            }
+
+            .receipt-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 15px;
+            }
+
+            body {
+                background: white;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Fujiya</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="promotion.html">Promotions</a></li>
+                <li><a href="order.html">Order Online</a></li>
+                <li><a href="receipt.html">Orders</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="container main-content">
+        <div class="receipt-container">
+            <div class="receipt-header">
+                <h2>Order Details</h2>
+                <p>Order ID: #20240315001</p>
+                <p>Order Date: 2024-03-15</p>
+            </div>
+
+            <div class="receipt-section">
+                <h3>Customer Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Name</strong>
+                        <span>John Doe</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Contact Number</strong>
+                        <span>13800138000</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Email</strong>
+                        <span>johndoe@example.com</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Delivery Address</strong>
+                        <span>123 Example Street, City</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Membership Status</strong>
+                        <span>Gold Member</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Delivery Date</strong>
+                        <span>2024-03-20</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="receipt-section">
+                <h3>Order Details</h3>
+                <div class="product-details">
+                    <div class="product-item">
+                        <div class="product-info">
+                            <strong>Peko & Hello Kitty Gift Box</strong>
+                            <p>Quantity: 2</p>
+                        </div>
+                        <div class="product-price">
+                            <p>Unit Price: 25 MYR</p>
+                            <p>Subtotal: 50 MYR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="total-section">
+                    <p>Member Discount: -5 MYR</p>
+                    <p class="total-amount">Total: 45 MYR</p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="window.print()">Print Order</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p>Copyright © 2025 Fujiya</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get latest order data from local storage and display
+        window.onload = function () {
+            const orders = JSON.parse(localStorage.getItem('fujiyaOrders') || '[]');
+            if (orders.length > 0) {
+                const latestOrder = orders[orders.length - 1];
+
+                // Update order ID and date
+                document.querySelector('.receipt-header p:nth-child(2)').textContent = `Order ID: ${latestOrder.orderId}`;
+                document.querySelector('.receipt-header p:nth-child(3)').textContent = `Order Date: ${new Date(latestOrder.orderDate).toLocaleDateString()}`;
+
+                // Update customer information
+                document.querySelector('.info-item:nth-child(1) span').textContent = latestOrder.name;
+                document.querySelector('.info-item:nth-child(2) span').textContent = latestOrder.phone;
+                document.querySelector('.info-item:nth-child(3) span').textContent = latestOrder.email;
+                document.querySelector('.info-item:nth-child(4) span').textContent = latestOrder.address;
+                document.querySelector('.info-item:nth-child(5) span').textContent = latestOrder.memberStatus;
+                document.querySelector('.info-item:nth-child(6) span').textContent = latestOrder.deliveryDate;
+
+                // Update product information
+                document.querySelector('.product-info strong').textContent = latestOrder.product;
+
+                // Extract price information
+                const priceMatch = latestOrder.product.match(/(\d+\.?\d*)\s*MYR/);
+                if (priceMatch) {
+                    const price = parseFloat(priceMatch[1]);
+                    const quantity = 1; // Default quantity is 1
+                    const subtotal = price * quantity;
+
+                    // Update price information
+                    document.querySelector('.product-price p:nth-child(1)').textContent = `Unit Price: ${price} MYR`;
+                    document.querySelector('.product-price p:nth-child(2)').textContent = `Subtotal: ${subtotal} MYR`;
+
+                    // Calculate member discount
+                    let discount = 0;
+                    if (latestOrder.memberStatus === 'Gold Member') {
+                        discount = subtotal * 0.1; // 10% discount
+                    } else if (latestOrder.memberStatus === 'Silver Member') {
+                        discount = subtotal * 0.05; // 5% discount
+                    }
+
+                    // Update total information
+                    document.querySelector('.total-section p:nth-child(1)').textContent = `Member Discount: -${discount.toFixed(2)} MYR`;
+                    document.querySelector('.total-amount').textContent = `Total: ${(subtotal - discount).toFixed(2)} MYR`;
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>

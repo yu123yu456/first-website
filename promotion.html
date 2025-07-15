@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fujiya - Monthly Promotions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* 导航栏样式 */
+        nav {
+            background-color: #ff4081;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+        }
+
+        /* 促销表格样式 */
+        .promotion-table {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .promotion-table th,
+        .promotion-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ff9eb5;
+        }
+
+        .promotion-table th {
+            background-color: #ff4081;
+            color: white;
+            font-size: 18px;
+        }
+
+        .promotion-table img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .promotion-table img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .discount-price {
+            color: #ff4081;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* 预订表单样式 */
+        .booking-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        .booking-form h2 {
+            color: #ff4081;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            background-color: #ff4081;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #e91e63;
+        }
+
+        /* 总结页面样式 */
+        #summary {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        #summary h2 {
+            color: #ff4081;
+            margin-bottom: 20px;
+        }
+
+        .promotion-title {
+            text-align: center;
+            color: #ff4081;
+            font-size: 32px;
+            margin: 30px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        /* 修复页面主容器 */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Fujiya</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="promotion.html">Promotions</a></li>
+                <li><a href="order.html">Order Online</a></li>
+                <li><a href="receipt.html">Orders</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <h1 class="promotion-title">Monthly Special Offers</h1>
+
+        <!-- Promotional Products Table -->
+        <table class="promotion-table">
+            <thead>
+                <tr>
+                    <th>Product Image</th>
+                    <th>Product Name</th>
+                    <th>Product Description</th>
+                    <th>Original Price</th>
+                    <th>Special Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="./images/p1.jpg" alt="Milky Candy"></td>
+                    <td>Milk Candy (100g)</td>
+                    <td>Classic taste, pure milk! Since 1951, Peko milk candy has been bringing you rich milk flavor and
+                        sweet enjoyment!</td>
+                    <td class="original-price">6 MYR</td>
+                    <td class="discount-price">5 MYR</td>
+                </tr>
+                <tr>
+                    <td><img src="./images/p2.jpg" alt="Peko Biscuits"></td>
+                    <td>Peko Biscuits</td>
+                    <td>Crispy and delicious! Made with premium wheat, Peko biscuits let you enjoy deliciousness
+                        anytime, anywhere!</td>
+                    <td class="original-price">25 MYR</td>
+                    <td class="discount-price">20 MYR</td>
+                </tr>
+                <tr>
+                    <td><img src="./images/p3.jpg" alt="Peko & Hello Kitty Gift Tin"></td>
+                    <td>Peko & Hello Kitty Gift Tin</td>
+                    <td>Double the cuteness, double the sweetness! Peko & Hello Kitty collaboration gift tin, filled
+                        with candies and surprises, perfect for gifting or collecting!</td>
+                    <td class="original-price">30 MYR</td>
+                    <td class="discount-price">25 MYR</td>
+                </tr>
+                <tr>
+                    <td><img src="./images/p4.jpg" alt="Dessert Can"></td>
+                    <td>Strawberry Milk Mousse Dessert Can</td>
+                    <td>Rich milk meets sweet strawberries! Layered delicious strawberry milk mousse dessert can,
+                        satisfying your dessert cravings anytime!</td>
+                    <td class="original-price">20 MYR</td>
+                    <td class="discount-price">15.9 MYR</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Booking Form -->
+        <div class="booking-form">
+            <h2>Product Booking</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="bookingDate">Booking Date:</label>
+                    <input type="date" id="bookingDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="productSelect">Select Product:</label>
+                    <select id="productSelect" required>
+                        <option value="">-- Select a product --</option>
+                        <option value="milky">Milky Candy (100g) - 5 MYR</option>
+                        <option value="biscuits">Peko Biscuits - 20 MYR</option>
+                        <option value="gifttin">Peko & Hello Kitty Gift Tin - 25 MYR</option>
+                        <option value="dessertcan">Dessert Can - 15.9 MYR</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" min="1" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit Order</button>
+            </form>
+        </div>
+
+        <!-- Order Summary -->
+        <div id="summary">
+            <h2>Order Summary</h2>
+            <div id="summaryContent"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p>Copyright © 2025 Fujiya</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const date = document.getElementById('bookingDate').value;
+            const productSelect = document.getElementById('productSelect');
+            const product = productSelect.options[productSelect.selectedIndex].text;
+            const quantity = document.getElementById('quantity').value;
+
+            // Get price (extract from product text)
+            const price = parseFloat(product.match(/\d+\.?\d*/)[0]);
+            const totalAmount = price * quantity;
+
+            // Display summary
+            const summaryContent = document.getElementById('summaryContent');
+            summaryContent.innerHTML = `
+                <p><strong>Booking Date:</strong> ${date}</p>
+                <p><strong>Selected Product:</strong> ${product}</p>
+                <p><strong>Quantity:</strong> ${quantity}</p>
+                <p><strong>Total Amount:</strong> ${totalAmount.toFixed(2)} MYR</p>
+            `;
+
+            document.getElementById('summary').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

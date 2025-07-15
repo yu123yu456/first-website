@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fujiya - Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background-color: #ff4081;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+        }
+
+        /* Banner Area Styles */
+        .banner {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* About Us Styles */
+        .about-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #ff4081;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .about-card {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-card img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* Featured Products Styles */
+        .products-section {
+            padding: 60px 0;
+            background: #f8f8f8;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-price {
+            color: #ff4081;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Fujiya</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="promotion.html">Promotions</a></li>
+                <li><a href="order.html">Order Online</a></li>
+                <li><a href="receipt.html">Orders</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Banner Area -->
+    <div class="banner">
+        <img src="images/WechatIMG942.jpg" alt="Fujiya Banner">
+        <div class="banner-content">
+            <h1>Welcome to Fujiya</h1>
+            <p>70 Years of Delicious Tradition</p>
+        </div>
+    </div>
+
+    <!-- About Us -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Fujiya</h2>
+            <div class="about-content">
+                <div class="about-card">
+                    <img src="images/WechatIMG931.jpg" alt="Quality Guarantee">
+                    <h3>Quality Guarantee</h3>
+                    <p>Carefully selected premium ingredients and strictly controlled production process to provide you
+                        with the most reliable delicacies.</p>
+                </div>
+                <div class="about-card">
+                    <img src="images/WechatIMG932.jpg" alt="Innovation Spirit">
+                    <h3>Innovation Spirit</h3>
+                    <p>Continuously innovating, blending tradition with modernity to create unique sweet experiences.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <img src="images/WechatIMG933.jpg" alt="Dedicated Service">
+                    <h3>Dedicated Service</h3>
+                    <p>Customer-centric approach, providing thoughtful service to ensure every customer feels valued.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/p1.jpg" alt="Milk Candy">
+                    <div class="product-info">
+                        <h3 class="product-title">Milk Candy (100g)</h3>
+                        <p class="product-price">5 MYR</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/p2.jpg" alt="Peko Biscuits">
+                    <div class="product-info">
+                        <h3 class="product-title">Peko Biscuits</h3>
+                        <p class="product-price">20 MYR</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/p3.jpg" alt="Peko & Hello Kitty Gift Box">
+                    <div class="product-info">
+                        <h3 class="product-title">Peko & Hello Kitty Gift Box</h3>
+                        <p class="product-price">25 MYR</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/p4.jpg" alt="Dessert Can">
+                    <div class="product-info">
+                        <h3 class="product-title">Strawberry Milk Mousse Dessert Can</h3>
+                        <p class="product-price">15.9 MYR</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <p>Copyright © 2025 Fujiya</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
